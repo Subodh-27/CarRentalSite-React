@@ -1,3 +1,5 @@
+import { BiSolidMoon, BiSolidSun } from "react-icons/bi";
+
 const NavLinks = [
     {
         id: "1",
@@ -21,9 +23,9 @@ const NavLinks = [
     },
 ]
 
-const Navbar = () => {
+const Navbar = ({theme, setTheme}) => {
     return(
-        <nav className="shadow-md">
+        <nav className="shadow-md bg-white dark:bg-dark dark:text-white duration-300">
             <div className="container">
                 <div className="flex justify-between items-center">
                     <div>
@@ -39,6 +41,16 @@ const Navbar = () => {
                                 ))
                             }
                         </ul>
+                    </div>
+                    <div>
+                        {
+                            theme === "dark" ? (
+                                <BiSolidSun className="text-2xl" onClick={() => setTheme("light")}/>
+                            ) : (
+                                <BiSolidMoon className="text-2xl" onClick={() => setTheme("dark")}/>
+                            )
+                        }
+                        
                     </div>
                 </div>
             </div>
