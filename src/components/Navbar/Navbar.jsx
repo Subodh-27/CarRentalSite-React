@@ -44,13 +44,16 @@ const Navbar = ({theme, setTheme}) => {
                     </div>
                     <div>
                         {
-                            theme === "dark" ? (
+                            theme === "dark" 
+                            ? 
+                            (
                                 <BiSolidSun className="text-2xl" onClick={() => setTheme("light")}/>
-                            ) : (
+                            ) 
+                            : 
+                            (
                                 <BiSolidMoon className="text-2xl" onClick={() => setTheme("dark")}/>
                             )
                         }
-                        
                     </div>
                 </div>
             </div>
