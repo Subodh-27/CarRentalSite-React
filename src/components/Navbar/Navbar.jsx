@@ -42,7 +42,7 @@ const Navbar = ({theme, setTheme}) => {
                             }
                         </ul>
                     </div>
-                    <div>
+                    <div className="hover:cursor-pointer">
                         {
                             theme === "dark" 
                             ? 
