@@ -38,7 +38,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-black dark:text-white">
+    <div className="">
       <Navbar theme={theme} setTheme={setTheme}/>
       <Hero theme={theme}/>
       <About/>

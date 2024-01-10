@@ -13,9 +13,9 @@ const bannerImg = {
 
 const AppStoreBanner = () => {
     return (
-        <div className="container pb-14">
+        <div className="container p-20 dark:bg-dark dark:text-white">
             <div
-                className="text-black py-10 sm:min-h-[400px] sm:grid sm:place-items-center rounded-xl"
+                className="p-10 sm:min-h-[400px] sm:grid sm:place-items-center rounded-xl"
                 style={bannerImg}
             >
                 <div>
