@@ -1,6 +1,10 @@
 import { BiSolidMoon, BiSolidSun } from "react-icons/bi";
+import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
+import { useState } from "react";
 
-const NavLinks = [
+import ResponsiveMenu from "./ResponsiveMenu.jsx";
+
+export const NavLinks = [
     {
         id: "1",
         name: "Home",
@@ -24,9 +28,15 @@ const NavLinks = [
 ]
 
 const Navbar = ({theme, setTheme}) => {
+    const [showMenu, setShowMenu] = useState(false);
+    
+    const togglemenu = () => {
+        setShowMenu(!showMenu);
+    }
+
     return(
         <nav className="shadow-md bg-white dark:bg-dark dark:text-white duration-300 relative z-40">
-            <div className="container">
+            <div className="container py-3 md:py-0">
                 <div className="flex justify-between items-center">
                     <div>
                         <h1 className="text-3xl font-bold font-serif">Rent-O-Car</h1>
@@ -40,23 +50,51 @@ const Navbar = ({theme, setTheme}) => {
                                     </li>
                                 ))
                             }
+                            {/* Dark Mode Icons */}
+                        <div className="hover:cursor-pointer">
+                            {
+                                theme === "dark" 
+                                ? 
+                                (
+                                    <BiSolidSun className="text-2xl" onClick={() => setTheme("light")}/>
+                                ) 
+                                : 
+                                (
+                                    <BiSolidMoon className="text-2xl" onClick={() => setTheme("dark")}/>
+                                )
+                            }
+                        </div>
                         </ul>
                     </div>
-                    <div className="hover:cursor-pointer">
+                    
+                    <div className="flex items-center gap-4 md:hidden">
+                        {/* Dark Mode Icons */}
+                        <div className="hover:cursor-pointer">
+                            {
+                                theme === "dark" 
+                                ? 
+                                (
+                                    <BiSolidSun className="text-2xl" onClick={() => setTheme("light")}/>
+                                ) 
+                                : 
+                                (
+                                    <BiSolidMoon className="text-2xl" onClick={() => setTheme("dark")}/>
+                                )
+                            }
+                        </div>
+
+                        {/* Mobile Hamburger Menu */}
                         {
-                            theme === "dark" 
-                            ? 
-                            (
-                                <BiSolidSun className="text-2xl" onClick={() => setTheme("light")}/>
-                            ) 
-                            : 
-                            (
-                                <BiSolidMoon className="text-2xl" onClick={() => setTheme("dark")}/>
+                            showMenu ? (
+                                <HiMenuAlt1 onClick={togglemenu} size={30} className="cursor-pointer transition-all" />
+                            ): (
+                                <HiMenuAlt3 onClick={togglemenu} size={30} className="cursor-pointer transition-all" />
                             )
                         }
                     </div>
                 </div>
             </div>
+            <ResponsiveMenu showMenu={showMenu}  />
         </nav>
     )
 }

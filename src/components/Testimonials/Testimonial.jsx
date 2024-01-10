@@ -39,7 +39,7 @@ const Testimonial = () => {
                                         className="h-20 w-20 rounded-full"
                                         />
                                     </div>
-                                    <div className="text-2xl">*****</div>
+                                    <div className="text-2xl">⭐⭐⭐⭐⭐</div>
                                     <p>{data.description}</p>
                                     <p className="font-semibold text-center">{data.name}</p>
                                 </div>
